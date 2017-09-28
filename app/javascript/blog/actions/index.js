@@ -6,7 +6,7 @@ export const FETCH_POST = 'FETCH_POST';
 export const POST_CREATED = 'POST_CREATED';
 
 export function fetchPosts() {
-  const promise = fetch(`${ROOT_URL}?key=${API_KEY}`)
+  const promise = fetch('/api/v1/posts')
     .then(response => response.json());
 
   return {
@@ -16,7 +16,7 @@ export function fetchPosts() {
 }
 
 export function fetchPost(id) {
-  const promise = fetch(`${ROOT_URL}/${id}?key=${API_KEY}`)
+  const promise = fetch(`/api/v1/posts/${id}`)
     .then(response => response.json());
 
   return {
@@ -26,7 +26,7 @@ export function fetchPost(id) {
 }
 
 export function createPost(body, callback) {
-  const request = fetch(`${ROOT_URL}?key=${API_KEY}`, {
+  const request = fetch('/api/v1/posts', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',

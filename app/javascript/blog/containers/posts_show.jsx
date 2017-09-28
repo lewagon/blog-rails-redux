@@ -32,7 +32,9 @@ class PostsShow extends Component {
 
 function mapStateToProps(state, ownProps) {
   return {
-    post: state.posts.find((post) => post.id === parseInt(ownProps.match.params.id))
+    post: state.posts.find((post) => {
+      return post.id === parseInt(ownProps.match.params.id)
+    })
   };
 }
 

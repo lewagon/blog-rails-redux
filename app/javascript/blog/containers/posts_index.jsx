@@ -31,7 +31,7 @@ class PostsIndex extends Component {
             Let's write a post!
           </Link>
         </div>
-        {this.renderPosts().reverse()}
+        {this.renderPosts()}
       </div>
     );
   }
