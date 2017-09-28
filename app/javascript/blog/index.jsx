@@ -19,11 +19,16 @@ const reducers = combineReducers({
   form: formReducer
 });
 
+
 const middlewares = applyMiddleware(reduxPromise, logger);
+const blogContainer = document.querySelector('.container');
+const initialState = {
+  posts: blogContainer.dataset.posts
+}
 
 // render an instance of the component in the DOM
 ReactDOM.render(
-  <Provider store={createStore(reducers, {}, middlewares)}>
+  <Provider store={createStore(reducers, initialState, middlewares)}>
     <Router history={history}>
       <div className="thin-container">
         <Switch>
@@ -34,5 +39,5 @@ ReactDOM.render(
       </div>
     </Router>
   </Provider>,
-  document.querySelector('.container')
+  blogContainer
 );

@@ -1,12 +1,11 @@
 // TODO: add and export your own actions
-const ROOT_URL = 'http://reduxblog.herokuapp.com/api/posts';
-const API_KEY = 'LEWAGON-BLOG';
+const ROOT_URL = '/api/v1';
 export const FETCH_POSTS = 'FETCH_POSTS';
 export const FETCH_POST = 'FETCH_POST';
 export const POST_CREATED = 'POST_CREATED';
 
 export function fetchPosts() {
-  const promise = fetch('/api/v1/posts')
+  const promise = fetch(`${ROOT_URL}/posts`)
     .then(response => response.json());
 
   return {
@@ -16,7 +15,7 @@ export function fetchPosts() {
 }
 
 export function fetchPost(id) {
-  const promise = fetch(`/api/v1/posts/${id}`)
+  const promise = fetch(`${ROOT_URL}/posts/${id}`)
     .then(response => response.json());
 
   return {
@@ -26,7 +25,7 @@ export function fetchPost(id) {
 }
 
 export function createPost(body, callback) {
-  const request = fetch('/api/v1/posts', {
+  const request = fetch(`${ROOT_URL}/posts`, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
