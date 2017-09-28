@@ -5,6 +5,7 @@ tmp/*
 *.swp
 .DS_Store
 public/assets
+public/packs
 node_modules
 
 # Ignore application configuration
